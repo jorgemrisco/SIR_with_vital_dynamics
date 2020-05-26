@@ -19,8 +19,9 @@ m = 0.0118
 D1,D2 = 0.0086,0.0086
 
 # The SIR model differential equations.
-def deriv(y, t, N, beta, gamma):
+def deriv(y, t, beta, gamma):
     S, I, R = y
+    N = S + I + R
     dSdt = (m*N) -beta * S * I / N - (D1*S)
     dIdt = beta * S * I / N - gamma * I - (D2*I)
     dRdt = gamma * I - (D1*R)
@@ -29,7 +30,7 @@ def deriv(y, t, N, beta, gamma):
 # Initial conditions vector
 y0 = S0, I0, R0
 # Integrate the SIR equations over the time grid, t.
-ret = odeint(deriv, y0, t, args=(N, beta, gamma))
+ret = odeint(deriv, y0, t, args=(beta, gamma))
 S, I, R = ret.T
 
 # Plot the data on three separate curves for S(t), I(t) and R(t)
