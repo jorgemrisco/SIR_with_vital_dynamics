@@ -12,7 +12,7 @@ S0 = N - I0 - R0
 # Contact rate, beta, and mean recovery rate, gamma, (in 1/days).
 beta, gamma = 0.2, 1./10 
 # A grid of time points (in days)
-t = np.linspace(0, 160, 160)
+t = np.linspace(0, 250, 250)
 #Natality rate
 m = 0.0118
 #Death Rate (D1 é morte dos saudáveis, D2 é morte dos infectados)
@@ -40,7 +40,7 @@ ax.plot(t, I/1000, 'r', alpha=0.5, lw=2, label='Infected')
 ax.plot(t, R/1000, 'g', alpha=0.5, lw=2, label='Recovered with immunity')
 ax.plot(t, (S+I+R)/1000, '--', alpha=0.5, lw=2, label='Total Population')
 ax.set_xlabel('Time /days')
-ax.set_ylabel('Number (1000s)')
+ax.set_ylabel('Quantity (*1000)')
 ax.set_ylim(0,2)
 ax.yaxis.set_tick_params(length=0)
 ax.xaxis.set_tick_params(length=0)
