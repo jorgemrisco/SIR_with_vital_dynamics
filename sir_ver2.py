@@ -4,24 +4,24 @@ import matplotlib.pyplot as plt
 import math
 #SIR with vital dynamics
 
-# Total population, N.
+# Initial Population
 N = 1000
-# Initial number of infected and recovered individuals, I0 and R0.
+# Initial number of infected,recovered and dead (because of the desease)individuals, I0,R0, M0.
 I0, R0, M0 = 1, 0, 0
-# Everyone else, S0, is susceptible to infection initially.
+# Susceptible people
 S0 = N - I0 - R0
-# Contact rate, beta, and mean recovery rate, gamma, (in 1/days).
+# BETA= Contact Rate, GAMMA = Recovery rate.
 beta, gamma = 0.2, 1./10 
-# A grid of time points (in days)
+# X axis, representing time(in days)
 t = np.linspace(0, 250, 250)
 #Natality rate
 m = 0.00338
-#Death Rate (D1 é morte dos saudáveis, D2 é morte dos infectados)
+#Death Rate (D1 represents the death of S, D2=date of I.)
 D1,D2 = 0.00243,0.026
-es = 3.0 #entrada de S
-ei = 2.0 #Entrada de i
-ss = 2.0 #Saida de s
-si = 0.5 #Saida de i
+es = 3.0 #S people entering the system
+ei = 2.0 #I people entering the system
+ss = 2.0 #S people leaving.
+si = 0.5 #I people leaving
 
 
 # The SIR model differential equations.
